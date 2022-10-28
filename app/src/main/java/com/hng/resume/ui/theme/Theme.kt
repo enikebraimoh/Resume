@@ -9,13 +9,13 @@ import androidx.compose.runtime.LaunchedEffect
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 
 private val DarkColorPalette = darkColors(
-    primary = Purple200,
+    primary = BlueLight,
     primaryVariant = Purple700,
     secondary = Teal200
 )
 
 private val LightColorPalette = lightColors(
-    primary = Purple500,
+    primary = BlueLight,
     primaryVariant = Purple700,
     secondary = Teal200
 
