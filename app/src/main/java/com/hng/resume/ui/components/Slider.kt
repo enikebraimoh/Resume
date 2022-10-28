@@ -76,6 +76,7 @@ fun Slider() {
         }
 
         Spacer(Modifier.height(20.dp))
+
         HorizontalPager(
             count = 3,
             verticalAlignment = Alignment.CenterVertically,
@@ -168,7 +169,7 @@ fun Slider() {
                                 }
                             }
 
-                            AnimatedVisibility(visible = pagerState.currentPage != 0) {
+                            if( pagerState.currentPage != 0) {
                                 Box(
                                     contentAlignment = Alignment.BottomCenter
                                 ) {
@@ -176,7 +177,7 @@ fun Slider() {
                                         modifier = Modifier
                                             .rotate(-90f),
                                         textAlign = TextAlign.Center,
-                                        text = "Resume"
+                                        text = "Portfolio"
                                     )
                                 }
                             }
@@ -201,75 +202,93 @@ fun Slider() {
                         backgroundColor = MaterialTheme.colors.primary,
                         modifier = if (pagerState.currentPage == 2) Modifier.fillMaxSize() else Modifier
                     ) {
-                        var childrenWidth by remember {
-                            mutableStateOf(0.dp)
-                        }
-                        Column(
-                            verticalArrangement = Arrangement.Center,
-                            horizontalAlignment = Alignment.CenterHorizontally,
-                            modifier = Modifier.padding(horizontal = 30.dp, vertical = 20.dp)
-                        ) {
-                            Row() {
-                                Column() {
+                        Row(verticalAlignment = Alignment.CenterVertically) {
+                            var childrenWidth by remember {
+                                mutableStateOf(0.dp)
+                            }
+
+                            if( pagerState.currentPage != 2) {
+                                Box(
+                                    contentAlignment = Alignment.CenterStart
+                                ) {
                                     Text(
-                                        text = "Android Engineer",
-                                        style = MaterialTheme.typography.h6.copy(fontSize = 30.sp)
+                                        modifier = Modifier
+                                            .rotate(-90F),
+                                        textAlign = TextAlign.Center,
+                                        text = "Resume"
                                     )
+                                }
+                            }
 
-                                    Spacer(Modifier.height(40.dp))
-
-                                    Text(
-                                        text = "$10k - $15k/mo",
-                                        style = MaterialTheme.typography.caption.copy(fontSize = 18.sp)
-                                    )
-
-                                    AnimatedVisibility(pagerState.currentPage == 2) {
-
-                                        Spacer(modifier = Modifier.height(10.dp))
-
-                                        Divider(
-                                            color = MaterialTheme.colors.background,
-                                            thickness = 0.5.dp,
-                                            modifier = Modifier.width(childrenWidth)
+                            Column(
+                                verticalArrangement = Arrangement.Center,
+                                horizontalAlignment = Alignment.CenterHorizontally,
+                                modifier = Modifier.padding(horizontal = 30.dp, vertical = 20.dp).weight(1f)
+                            ) {
+                                Row(verticalAlignment = Alignment.Top) {
+                                    Column() {
+                                        Text(
+                                            text = "Android Engineer",
+                                            style = MaterialTheme.typography.h6.copy(fontSize = 30.sp)
                                         )
 
-                                        Spacer(modifier = Modifier.height(10.dp))
-
-                                        val density = LocalDensity.current
+                                        Spacer(Modifier.height(40.dp))
 
                                         Text(
-                                            text = stringResource(R.string.resume_description),
-
-                                            style = MaterialTheme.typography.caption.copy(fontSize = 15.sp),
-                                            modifier = Modifier
-                                                .onGloballyPositioned {
-                                                    childrenWidth =
-                                                        density.run { it.size.width.toDp() }
-                                                }
+                                            text = "$10k - $15k/mo",
+                                            style = MaterialTheme.typography.caption.copy(fontSize = 18.sp)
                                         )
+
+                                        AnimatedVisibility(pagerState.currentPage == 2) {
+
+                                            Spacer(modifier = Modifier.height(10.dp))
+
+                                            Divider(
+                                                color = MaterialTheme.colors.background,
+                                                thickness = 0.5.dp,
+                                                modifier = Modifier.width(childrenWidth)
+                                            )
+
+                                            Spacer(modifier = Modifier.height(10.dp))
+
+                                            val density = LocalDensity.current
+
+                                            Text(
+                                                text = stringResource(R.string.resume_description),
+
+                                                style = MaterialTheme.typography.caption.copy(fontSize = 15.sp),
+                                                modifier = Modifier
+                                                    .onGloballyPositioned {
+                                                        childrenWidth =
+                                                            density.run { it.size.width.toDp() }
+                                                    }
+                                            )
+                                        }
+
                                     }
 
-                                }
+                                    Column(
+                                        horizontalAlignment = Alignment.CenterHorizontally,
+                                        verticalArrangement = Arrangement.Top,
+                                        modifier = Modifier.padding(vertical = 20.dp)
+                                    ) {
+                                        Box(
+                                            modifier = Modifier
+                                                .size(4.dp)
+                                                .background(Color.White, RoundedCornerShape(5.dp))
+                                        )
+                                        Spacer(modifier = Modifier.height(3.dp))
+                                        Box(
+                                            modifier = Modifier
+                                                .size(4.dp)
+                                                .background(Color.White, RoundedCornerShape(5.dp))
+                                        )
 
-                                Column(
-                                    horizontalAlignment = Alignment.CenterHorizontally,
-                                    verticalArrangement = Arrangement.Top,
-                                    modifier = Modifier.padding(vertical = 20.dp)
-                                ) {
-                                    Box(
-                                        modifier = Modifier
-                                            .size(4.dp)
-                                            .background(Color.White, RoundedCornerShape(5.dp))
-                                    )
-                                    Spacer(modifier = Modifier.height(3.dp))
-                                    Box(
-                                        modifier = Modifier
-                                            .size(4.dp)
-                                            .background(Color.White, RoundedCornerShape(5.dp))
-                                    )
+                                    }
                                 }
-
                             }
+
+
                         }
 
                     }
