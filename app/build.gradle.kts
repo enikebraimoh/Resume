@@ -64,5 +64,6 @@ dependencies {
 
     implementation("com.google.accompanist:accompanist-systemuicontroller:0.25.1")
     implementation ("com.google.accompanist:accompanist-pager:0.27.0")
+    implementation ("com.google.accompanist:accompanist-pager-indicators:0.25.1")
     implementation ("androidx.compose.ui:ui-util:1.1.1")
 }

@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Resume</string>
-    <string name="resume_description">Eric has 7 years of experience in design,\nproduct development, and interaction \ndesign for both web and mobile. His work\n encompasses everything from idea and \nvisualization to brand and user experience</string>
+    <string name="resume_description">Enike has 4 years of experience in Android Development, very conversant with the latest Android framework &amp; Jetpack libraries.</string>
+    <string name="bio">I write well-designed, testable, Maintainable and efficient code using Kotlin and jetpack Compose and best practices.</string>
 </resources>
